@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        💳 Checkout
+    </div>
+
+    <div class="checkout-box">
+
+        <h2>Total Amount: ₹{{ total }}</h2>
+
+        <h3>Scan QR to Pay</h3>
+
+        <img src="{{ url_for('static',
+             filename='images/upi_qr.jpg') }}" class="qr-image">
+
+        <br><br>
+
+        <a href="/payment-success">
+
+            <button>
+                I Have Paid ✅
+            </button>
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

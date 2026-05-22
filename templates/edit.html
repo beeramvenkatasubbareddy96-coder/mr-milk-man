@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Order</title>
+</head>
+
+<body>
+
+    <h2>Edit Order</h2>
+
+    <form method="POST" action="/update/{{ order[0] }}">
+
+        <input name="name" value="{{ order[1] }}">
+        <input name="phone" value="{{ order[2] }}">
+
+        <select name="product">
+            <option selected>{{ order[3] }}</option>
+            <option>buffalo milk</option>
+            <option>cow milk</option>
+        </select>
+
+        <button type="submit">Update</button>
+
+    </form>
+
+</body>
+
+</html>

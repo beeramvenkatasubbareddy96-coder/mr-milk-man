@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>MR MILK MAN</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        🐄 MR MILK MAN
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products">
+
+        {% for p in products %}
+
+        <div class="card">
+
+            <img src="{{ url_for('static', filename='images/' + p[0]) }}">
+
+            <h2>{{ p[1] }}</h2>
+
+            <p>₹{{ p[2] }}</p>
+
+            <a href="/add/{{ p[1] }}/{{ p[2] }}">
+                <button>Add to Cart</button>
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- CART BUTTON -->
+    <div class="cart-btn">
+
+        <a href="/cart">
+            <button>Go to Cart 🛒</button>
+        </a>
+
+    </div>
+
+    <!-- ORDER FORM -->
+    <div class="order-form">
+
+        <form action="/order" method="POST">
+
+            <h2>Place Order</h2>
+
+            <input type="text" name="name" placeholder="Enter Name" required>
+
+            <input type="text" name="phone" placeholder="Enter Phone" required>
+
+            <select name="product" required>
+
+                {% for p in products %}
+
+                <option value="{{ p[1] }}">
+                    {{ p[1] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">
+                Order Now
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
